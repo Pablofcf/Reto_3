@@ -55,3 +55,24 @@ escribir [n / i]
 Fin 
 
 
+flowchart TD;
+    A(Números primos hasta n)-->B[Crear una lista de números naturales desde 2 hasta n];
+    B --> C;
+    C[Para cada n_i de la lista se crea una sublista de divisores desde 2 hasta la raíz de n_i +1];
+    C-->D;
+    D[Dividir n_i/i];
+    D-->E;
+    E{el residuo de n_i/i es cero?} -- Sí --> F[i es divisor];
+    E -- No --> G[i no es divisor];
+    H[i=i+1] --> I{i menor a n_i?};
+    G --> H;
+    F --> H;
+    I -- Sí --> E;
+    I -- No --> J{n_i tiene divisores diferentes a n_i?};
+    J -- Sí --> K[n_i no es primo];
+    J -- No --> L[n_i es primo];
+    K-->M;
+    L -->M;
+    M{n_i es menor a n?};
+    M -- No --> N(Fin);
+    M -- Sí --> J;
