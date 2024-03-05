@@ -39,40 +39,25 @@ https://www.mermaidchart.com/raw/6617765a-b5c3-4697-b67c-1d634f1c365d?theme=dark
 Pseudocódigo
 
 [variables]
-n : natural
-i : natural
+n : raíz de un número 
+x : natural
+y : natural diferente de x
+≈ : aproximado
 
 inicio
-listado de 2 hasta n+1 
-listado de 2 hasta i+1
+escribir [Separar las cifras en pares de derecha a izquierda]
+{modulo condiconal con la pregunta ¿Las parejas están completas?}
+  si modulo [x * x = primera pareja]
+  escribir [primera pareja ≈]
+  si no [x * y = primera pareja]
+   escribir [primera pareja ≈]
+   
+escirbir [Restar el aproximado con la primera pareja y bajar residuo]
+escribir [Tomar el resultado de la primera pareja y multiplicarlo por 2]
+escribir [Combinar el resultado con números del 1 al 5 y multiplicarlos por los mismos números en órden consecutivo]
+escribir [Escoger el resultado más cercano al residuo]
+{modulo condiconal con la pregunta ¿Al restar el residuo es exacto?}
+  si modulo, escribir [Es un número natural
+  si no, escribir [Es un número racional]
 
-escribir [n / i]
-{modulo condiconal con la pregunta ¿Únicamente tiene dos residuos de 0?}
-  si modulo [n/i = a dos 0 como residuo]
-  escribir [n es primo]
-  si no [n/i = a más de dos 0 como residuo]
-   escribir [n no es primo]
 Fin 
-
-
-flowchart TD;
-    A(Números primos hasta n)-->B[Crear una lista de números naturales desde 2 hasta n];
-    B --> C;
-    C[Para cada n_i de la lista se crea una sublista de divisores desde 2 hasta la raíz de n_i +1];
-    C-->D;
-    D[Dividir n_i/i];
-    D-->E;
-    E{el residuo de n_i/i es cero?} -- Sí --> F[i es divisor];
-    E -- No --> G[i no es divisor];
-    H[i=i+1] --> I{i menor a n_i?};
-    G --> H;
-    F --> H;
-    I -- Sí --> E;
-    I -- No --> J{n_i tiene divisores diferentes a n_i?};
-    J -- Sí --> K[n_i no es primo];
-    J -- No --> L[n_i es primo];
-    K-->M;
-    L -->M;
-    M{n_i es menor a n?};
-    M -- No --> N(Fin);
-    M -- Sí --> J;
